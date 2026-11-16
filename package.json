@@ -1,0 +1,10 @@
+{
+  "name": "midgard-geo-tactics",
+  "version": "1.0.0",
+  "description": "Isometric 2.5D Tactical Auto-Battler RPG combining Disgaea (Geo Panels, 10-Hero Grid, Chain Combos), Ragnarok Online (Job Classes, Paperdoll Equips, +10 Refine, Card Sockets, Open World MVP Hunts), and RAID: Shadow Legends (Speed Turn Meter & Role Auto-Battler).",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

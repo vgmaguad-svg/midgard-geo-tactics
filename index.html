@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MIDGARD GEO-TACTICS | Ragnarök × Disgaea 2.5D × RAID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="world">
+  <header>
+    <h1>MIDGARD GEO-TACTICS</h1>
+    <span class="pill">Zeny <b id="uiGold">650</b>z</span>
+    <span class="pill" id="uiWeightPill">Weight <b id="uiWeight">0 / 450</b></span>
+
+    <div class="mode-switch">
+      <button id="bModeWorld" class="mode-btn on">Open World</button>
+      <button id="bModeBattle" class="mode-btn">22×22 Grid</button>
+    </div>
+
+    <button id="bCharWin" title="Character Stats, Sub-Stats & 8-Slot Paperdoll (E)">Hero &amp; Equip (E)</button>
+    <button id="bInvWin" title="3-Tab Inventory: Items, Equips, Misc & Weight (I)">Inventory (I)</button>
+    <button id="bSkillWin" title="Job Lv. 40, 8-Skill Split Tree & Dual Job Change (K)">Skills &amp; Job (K)</button>
+    <button id="bAtlas" class="wm" title="Midgard Block-Grid World Map (M)">World Map (M)</button>
+    <button id="bRest" class="wm">Inn / Heal (R)</button>
+    <button id="bTownWin" class="wm">Town Shop &amp; Forge</button>
+
+    <button id="bPause" class="bm">Pause</button>
+    <span class="bm">
+      <button class="sp on" data-s="1">1x</button>
+      <button class="sp" data-s="2">2x</button>
+      <button class="sp" data-s="4">4x</button>
+    </span>
+    <button id="bAuto" class="bm on">Auto: ON</button>
+    <button id="bZoomReset" class="bm">Fit Grid</button>
+    <button id="bReport" class="bm" style="display:none">Battle report</button>
+
+    <button id="bSound" class="on">Sound: on</button>
+    <small id="uiHint">Press E (Hero/Equip), I (Inventory), K (Skills/Job), M (World Map).</small>
+  </header>
+
+  <main>
+    <div id="stage">
+      <canvas id="c" width="1720" height="960"></canvas>
+      <div id="npcModal" class="ro-modal"></div>
+      <div id="atlasModal" class="ro-modal"></div>
+      <div id="charModal" class="ro-modal"></div>
+      <div id="invModal" class="ro-modal"></div>
+      <div id="skillModal" class="ro-modal"></div>
+      <div id="report"></div>
+    </div>
+
+    <aside>
+      <div class="box wm" id="boxHunts">
+        <h2>Current Map Monsters <span id="uiCurBlockCode" style="color:#ffe08a"></span></h2>
+        <div id="hunts"></div>
+        <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line); display:flex; gap:5px; flex-wrap:wrap;">
+          <button id="bSideWarpTown" class="primary" style="flex:1; font-size:11px;">🏰 Prontera</button>
+          <button id="bSideTavern" style="flex:1; font-size:11px;">🍺 Tavern</button>
+        </div>
+        <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
+          <h2>Role Badges</h2>
+          <div id="roles"></div>
+        </div>
+      </div>
+
+      <div class="box bm" id="card">
+        <h2>Combatant <span id="bonusRankLabel" style="color:#e6c877">BONUS LV. 1</span></h2>
+        <div class="bar" style="margin-bottom:8px;"><i id="bonusFill" style="width:25%; background:#d4af5a;"></i></div>
+        <div id="cardBody" style="color:var(--dim)">Click a hero or monster on the grid.</div>
+      </div>
+
+      <div class="box bm">
+        <h2>Battle Log <button id="bClearLog" style="padding:1px 6px; font-size:10px;">Clear</button></h2>
+        <div id="log"></div>
+      </div>
+
+      <details class="box bm">
+        <summary>Floor Panels, Elements &amp; Status Guide</summary>
+        <div id="legend" style="margin-top:8px"></div>
+        <div id="statusLegend" style="margin-top:8px; padding-top:6px; border-top:1px solid var(--line)"></div>
+      </details>
+    </aside>
+  </main>
+
+  <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
